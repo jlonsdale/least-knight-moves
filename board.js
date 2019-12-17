@@ -7,11 +7,13 @@ class Board {
 
     this.board = []
 
-    letters.forEach(letter, (letter) => {
-      numbers.forEach(number, (number)=> {
+    letters.forEach((letter) => {
+      numbers.forEach((number)=> {
         this.board.push(new Square(letter+number))
       })
     })
+
+    console.log(this.board)
   }
 
 

@@ -1,4 +1,4 @@
-export default class Square {
+class Square {
 
   constructor(id) {
     this.id = id

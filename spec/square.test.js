@@ -1,4 +1,4 @@
-import Square from '.././square.js'
+const square = require('.././square.js')
 
 it('has coords 1,1 for a1', () => {
   const a1 = new Square('a1');
