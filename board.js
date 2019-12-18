@@ -14,7 +14,6 @@ class Board {
 
   findByCoords(x,y) {
     const id = (String.fromCharCode(x+96)+y)
-    console.log(id)
     return this.board.find(element => element.id == id);
   }
 
@@ -23,20 +22,17 @@ class Board {
   }
 
   nextMoves(square) {
-    square.fillSquare(this.moves)
-    const currentX = square.x;
-    const currentY = square.y;
-    const arr = [1,2, 2,1, -1,-2, -2,-1, -1,2, 2,-1, 1,-2, -2,1]
-    this.moves+=1
-    for(var i=0; i<arr.length; i+=2) {
-      var currentSquare = this.findByCoords(currentX+arr[i],currentY+arr[i+1])
-      currentSquare.fillSquare(this.moves)
-      $(document).ready(function(){
+      square.fillSquare(this.moves)
+      const currentX = square.x;
+      const currentY = square.y;
+      const arr = [1,2, 2,1, -1,-2, -2,-1, -1,2, 2,-1, 1,-2, -2,1]
+      this.moves+=1
+      for(var i=0; i<arr.length; i+=2) {
+        var currentSquare = this.findByCoords(currentX+arr[i],currentY+arr[i+1])
+        currentSquare.fillSquare(this.moves)
         $('#'+currentSquare.id).text(currentSquare.value);
-      })
+      }
     }
-
-  }
 
 
 
