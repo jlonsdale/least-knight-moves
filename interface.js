@@ -5,6 +5,7 @@ $(document).ready(function(){
     console.log(this.id)
     $('#'+this.id).text("0");
     square = chessBoard.findByID(this.id)
-    chessBoard.nextMoves(square)
+    square.fillSquare(0)
+    chessBoard.fillBoard(square)
   });
 });
