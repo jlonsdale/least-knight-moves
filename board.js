@@ -22,11 +22,26 @@ class Board {
     return this.board.find(element => element.id == id);
   }
 
+  isDone() {
+    var isDone = true
+    this.board.forEach( (item) => {
+      if(item.filled==false) {
+        isDone = false
+      }
+    })
+    return isDone;
+  }
+
   fillBoard(square) {
+
     this.filledSquares.push(square)
     const arr = [1,2,3,4,5,6]
     arr.forEach((i) => {
-      this.filledSquares.forEach( (item)=> {
+      if(this.isDone()){
+        return;
+      }
+      this.filledSquares.forEach( (item) => {
+        this.filledSquares = this.filledSquares.filter(sq => sq.value != square.value>=i-1);
         this.nextMoves(item)
       })
     })
@@ -34,6 +49,9 @@ class Board {
   }
 
   nextMoves(square) {
+    if(this.isDone()){
+      return;
+    }
     const currentX = square.x;
     const currentY = square.y;
     const arr = [1,2, 2,1, -1,-2, -2,-1, -1,2, 2,-1, 1,-2, -2,1]
